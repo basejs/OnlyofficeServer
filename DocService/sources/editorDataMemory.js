@@ -58,7 +58,7 @@ EditorData.prototype._checkAndLock = function(name, docId, fencingToken, ttl) {
   let data = this._getDocumentData(docId);
   const now = Date.now();
   let res = true;
-  if (data[name] && now < data[name].expireAt && fencingToken !== data[name].fencingToken) {
+  if (data[name] && now < data[name].expireAt) {
     res = false;
   } else {
     const expireAt = now + ttl * 1000;
